@@ -17,12 +17,12 @@
 // -------------------------------------------------------------------------- //
 
 #pragma config USERID = 0xFFFF              // Enter Hexadecimal value (Enter Hexadecimal value)
-#pragma config FMIIEN = ON                  // Ethernet RMII/MII Enable (MII Enabled)
-#pragma config FETHIO = ON                  // Ethernet I/O Pin Select (Default Ethernet I/O)
-#pragma config PGL1WAY = ON                 // Permission Group Lock One Way Configuration (Allow only one reconfiguration)
-#pragma config PMDL1WAY = ON                // Peripheral Module Disable Configuration (Allow only one reconfiguration)
-#pragma config IOL1WAY = ON                 // Peripheral Pin Select Configuration (Allow only one reconfiguration)
-#pragma config FUSBIDIO = ON                // USB USBID Selection (Controlled by the USB Module)
+#pragma config FMIIEN = OFF                  // Ethernet RMII/MII Enable (MII Enabled)
+#pragma config FETHIO = OFF                   // Ethernet I/O Pin Select (Default Ethernet I/O)
+#pragma config PGL1WAY = OFF                  // Permission Group Lock One Way Configuration (Allow only one reconfiguration)
+#pragma config PMDL1WAY = OFF                 // Peripheral Module Disable Configuration (Allow only one reconfiguration)
+#pragma config IOL1WAY = OFF                  // Peripheral Pin Select Configuration (Allow only one reconfiguration)
+#pragma config FUSBIDIO = OFF                 // USB USBID Selection (Controlled by the USB Module)
 
 // DEVCFG2
 #pragma config FPLLIDIV = DIV_8             // System PLL Input Divider (8x Divider)
@@ -87,6 +87,7 @@ void configure_analog_pins()
 {
     // Analog select for PORTB
     ANSELB = 0x00;
+    ANSELBbits.ANSB4 = 1;
     // Analog select for PORTE
     ANSELE = 0x00;
     // Analog select for PORTG
@@ -97,6 +98,7 @@ void configure_io()
 {
     // Tri-state B configuration (input = 1 : output = 0)
     TRISB = 0x000000;
+    TRISBbits.TRISB4 = 1;
     // Tri-state C configuration (input = 1 : output = 0)
     TRISC = 0x000000;
     // Tri-state D configuration (input = 1 : output = 0)

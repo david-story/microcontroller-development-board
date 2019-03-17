@@ -13,11 +13,10 @@
 
 void main(void) {
     configure_chip();
+    long value = 0;
     while(1)
     {
-        PORTG = ~PORTG;
-        PORTB = ~PORTB;
-        PORTE = ~PORTE;
+        value = class1_adc_read(4);
         delay_ms(250);
     }
     
