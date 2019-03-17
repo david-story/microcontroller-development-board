@@ -89,6 +89,7 @@ void configure_class1_adc()
      ADCTRGSNSbits.LVL0 = 0;        // Edge trigger
      ADCTRGSNSbits.LVL1 = 0;        // Edge trigger
      ADCTRGSNSbits.LVL2 = 0;        // Edge trigger
+     
      ADCTRG1bits.TRGSRC0 = 1;       // Set AN0 to trigger from software.
      ADCTRG1bits.TRGSRC1 = 1;       // Set AN1 to trigger from software.
      ADCTRG1bits.TRGSRC2 = 1;       // Set AN2 to trigger from software.
@@ -239,7 +240,7 @@ long class1_adc_read(int adc_num)
     if (adc_num == 0)
     {
         // turn ADC module on
-        class1_adc_on(0);
+        class1_adc_on(adc_num);
         /* Trigger a conversion */
         ADCCON3bits.GSWTRG = 1;
         /* Wait the conversions to complete */
@@ -247,14 +248,14 @@ long class1_adc_read(int adc_num)
         // turn ADC module off
         /* fetch the result */
         result = ADCDATA0;
-        class1_adc_off(0);
+        class1_adc_off(adc_num);
         return result;
     }
     
     else if (adc_num == 1)
     {
         // turn ADC module on
-        class1_adc_on(1);
+        class1_adc_on(adc_num);
         /* Trigger a conversion */
         ADCCON3bits.GSWTRG = 1;
         /* Wait the conversions to complete */
@@ -262,14 +263,14 @@ long class1_adc_read(int adc_num)
         /* fetch the result */
         result = ADCDATA1;
         // turn ADC module off
-        class1_adc_off(1);
+        class1_adc_off(adc_num);
         return result;
     }
     
     else if (adc_num == 2)
     {
         // turn ADC module on
-        class1_adc_on(2);
+        class1_adc_on(adc_num);
         /* Trigger a conversion */
         ADCCON3bits.GSWTRG = 1;
         /* Wait the conversions to complete */
@@ -277,14 +278,14 @@ long class1_adc_read(int adc_num)
         /* fetch the result */
         result = ADCDATA2;
         // turn ADC module off
-        class1_adc_off(2);
+        class1_adc_off(adc_num);
         return result;
     }
     
     else if (adc_num == 3)
     {
         // turn ADC module on
-        class1_adc_on(3);
+        class1_adc_on(adc_num);
         /* Trigger a conversion */
         ADCCON3bits.GSWTRG = 1;
         /* Wait the conversions to complete */
@@ -292,14 +293,14 @@ long class1_adc_read(int adc_num)
         /* fetch the result */
         result = ADCDATA3;
         // turn ADC module off
-        class1_adc_off(3);
+        class1_adc_off(adc_num);
         return result;
     }
     
     else if (adc_num == 4)
     {
         // turn ADC module on
-        class1_adc_on(4);
+        class1_adc_on(adc_num);
         /* Trigger a conversion */
         ADCCON3bits.GSWTRG = 1;
         /* Wait the conversions to complete */
@@ -307,14 +308,14 @@ long class1_adc_read(int adc_num)
         /* fetch the result */
         result = ADCDATA4;
         // turn ADC module off
-        class1_adc_off(4);
+        class1_adc_off(adc_num);
         return result;
     }
     
     else if (adc_num == 7)
     {
         // turn ADC module on
-        class1_adc_on(7);
+        class1_adc_on(adc_num);
         /* Trigger a conversion */
         ADCCON3bits.GSWTRG = 1;
         /* Wait the conversions to complete */
@@ -322,7 +323,7 @@ long class1_adc_read(int adc_num)
         /* fetch the result */
         result = ADCDATA7;
         // turn ADC module off
-        class1_adc_off(7);
+        class1_adc_off(adc_num);
         return result;
     }
  

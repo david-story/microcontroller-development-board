@@ -16,7 +16,7 @@ void main(void) {
     long value = 0;
     while(1)
     {
-        value = class1_adc_read(4);
+        value = class2_adc_read(17);
         delay_ms(250);
     }
     
