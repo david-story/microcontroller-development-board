@@ -19,7 +19,7 @@ void adc_configure(int adc_num)
     // Begin ADC configuration
     
     // Configure ADCCON1: keep ON bit = 0
-    ADCCON1 = 'b'00000000011000000010011001110000
+    ADCCON1 = 0b00000000011000000010011001110000;
     
     // Configure ADCCON2: pay attention to ADC-DIV<6:0> and SAMC<9:0>
     
@@ -50,7 +50,6 @@ void adc_configure(int adc_num)
     
     // Configure Comparators / Filters
     
-    return;
 }
 
 long adc_read(int adc_num)
