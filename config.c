@@ -7,7 +7,7 @@
 
 #include <xc.h>
 #include "config.h"
-#include "adc.h"
+#include "adc1.h"
 
 // -------------------------------------------------------------------------- //
 /*
@@ -87,7 +87,6 @@ void configure_analog_pins()
 {
     // Analog select for PORTB
     ANSELB = 0x00;
-    ANSELBbits.ANSB4 = 1;
     // Analog select for PORTE
     ANSELE = 0x00;
     // Analog select for PORTG
@@ -98,7 +97,6 @@ void configure_io()
 {
     // Tri-state B configuration (input = 1 : output = 0)
     TRISB = 0x000000;
-    TRISBbits.TRISB4 = 1;
     // Tri-state C configuration (input = 1 : output = 0)
     TRISC = 0x000000;
     // Tri-state D configuration (input = 1 : output = 0)

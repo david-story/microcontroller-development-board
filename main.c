@@ -9,7 +9,7 @@
 #include <xc.h>
 #include "config.h"
 #include "delay.h"
-#include "adc.h"
+#include "adc1.h"
 
 void main(void) {
     configure_chip();

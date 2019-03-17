@@ -15,8 +15,8 @@
  */
 /* ************************************************************************** */
 
-#ifndef adc    /* Guard against multiple inclusion */
-#define adc
+#ifndef adc1   /* Guard against multiple inclusion */
+#define adc1
 
 void configure_class1_adc();
 void class1_adc_on(int adc_num);

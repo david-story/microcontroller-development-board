@@ -7,7 +7,7 @@
 
 
 #include <xc.h>
-#include "adc.h"
+#include "adc1.h"
 
 void configure_class1_adc()
 {

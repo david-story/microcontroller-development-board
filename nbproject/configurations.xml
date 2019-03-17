@@ -6,7 +6,7 @@
                    projectFiles="true">
       <itemPath>delay.h</itemPath>
       <itemPath>config.h</itemPath>
-      <itemPath>adc.h</itemPath>
+      <itemPath>adc1.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -16,9 +16,9 @@
                    displayName="Source Files"
                    projectFiles="true">
       <logicalFolder name="f1" displayName="Support" projectFiles="true">
-        <itemPath>adc.c</itemPath>
         <itemPath>config.c</itemPath>
         <itemPath>delay.c</itemPath>
+        <itemPath>adc1.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
     </logicalFolder>
