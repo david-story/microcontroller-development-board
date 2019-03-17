@@ -18,8 +18,10 @@
 #ifndef adc    /* Guard against multiple inclusion */
 #define adc
 
-void adc_configure(int adc_num);
-long adc_read(int adc_num);
+void configure_class1_adc();
+void class1_adc_on(int adc_num);
+void class1_adc_off(int adc_num);
+long class1_adc_read(int adc_num);
 
 #endif /* adc */
 

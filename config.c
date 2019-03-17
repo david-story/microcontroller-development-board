@@ -7,6 +7,7 @@
 
 #include <xc.h>
 #include "config.h"
+#include "adc.h"
 
 // -------------------------------------------------------------------------- //
 /*
@@ -75,8 +76,21 @@
 
 void configure_chip()
 {
+    
     // configures i/o ports for chip
     configure_io();
+    configure_analog_pins();
+    configure_class1_adc();
+}
+
+void configure_analog_pins()
+{
+    // Analog select for PORTB
+    ANSELB = 0x00;
+    // Analog select for PORTE
+    ANSELE = 0x00;
+    // Analog select for PORTG
+    ANSELG = 0x00;
 }
 
 void configure_io()

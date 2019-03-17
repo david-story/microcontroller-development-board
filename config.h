@@ -20,6 +20,7 @@
 
 void configure_chip();
 void configure_io();
+void configure_analog_pins();
 
 #endif // config
 
