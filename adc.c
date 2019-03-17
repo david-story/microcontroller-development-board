@@ -92,7 +92,7 @@ void configure_class1_adc()
      ADCTRG1bits.TRGSRC0 = 1;       // Set AN0 to trigger from software.
      ADCTRG1bits.TRGSRC1 = 1;       // Set AN1 to trigger from software.
      ADCTRG1bits.TRGSRC2 = 1;       // Set AN2 to trigger from software.
-
+     
      /* Early interrupt */
      ADCEIEN1 = 0;                  // No early interrupt
      ADCEIEN2 = 0;
@@ -113,24 +113,68 @@ void class1_adc_on(int adc_num)
     while(!ADCCON2bits.BGVRRDY);    // Wait until the reference voltage is ready
     while(ADCCON2bits.REFFLT);      // Wait if there is a fault with the reference voltage
     
-    /* Enable clock to analog circuit */
-    ADCANCONbits.ANEN0 = 1;         // Enable the clock to analog bias
-    ADCANCONbits.ANEN1 = 1;         // Enable the clock to analog bias
-    ADCANCONbits.ANEN2 = 1;         // Enable the clock to analog bias
-    ADCANCONbits.ANEN3 = 1;         // Enable the clock to analog bias
-    ADCANCONbits.ANEN4 = 1;         // Enable the clock to analog bias
-    ADCANCONbits.ANEN7 = 1;         // Enable the clock to analog bias
+    if (adc_num == 0)
+    {
+        /* Enable clock to analog circuit */
+        ADCANCONbits.ANEN0 = 1;         // Enable the clock to analog bias
+        while(!ADCANCONbits.WKRDY0);    // Wait until ADC0 is ready
+        ADCCON3bits.DIGEN0 = 1;         // Enable ADC0
+    }
     
-    /* Wait for ADC to be ready */
-    while(!ADCANCONbits.WKRDY0);    // Wait until ADC0 is ready
-    while(!ADCANCONbits.WKRDY1);    // Wait until ADC1 is ready
-    while(!ADCANCONbits.WKRDY2);    // Wait until ADC2 is ready
+    else if(adc_num == 1)
+    {
+        /* Enable clock to analog circuit */
+        ADCANCONbits.ANEN1 = 1;         // Enable the clock to analog bias
+        /* Wait for ADC to be ready */
+        while(!ADCANCONbits.WKRDY1);    // Wait until ADC1 is ready
+        /* Enable the ADC module */
+        ADCCON3bits.DIGEN1 = 1;         // Enable ADC1
+    }
     
-    /* Enable the ADC module */
-    ADCCON3bits.DIGEN0 = 1;         // Enable ADC0
-    ADCCON3bits.DIGEN1 = 1;         // Enable ADC1
-    ADCCON3bits.DIGEN2 = 1;         // Enable ADC2
+     else if(adc_num == 2)
+    {
+         /* Enable clock to analog circuit */
+        ADCANCONbits.ANEN2 = 1;         // Enable the clock to analog bias
+        /* Wait for ADC to be ready */
+        while(!ADCANCONbits.WKRDY2);    // Wait until ADC2 is ready
+        /* Enable the ADC module */
+        ADCCON3bits.DIGEN2 = 1;         // Enable ADC2
+    }
     
+     else if(adc_num == 3)
+    {
+        /* Enable clock to analog circuit */
+        ADCANCONbits.ANEN3 = 1;         // Enable the clock to analog bias
+        /* Wait for ADC to be ready */
+        while(!ADCANCONbits.WKRDY3);    // Wait until ADC3 is ready
+        /* Enable the ADC module */
+        ADCCON3bits.DIGEN3 = 1;         // Enable ADC3
+    }
+    
+     else if(adc_num == 4)
+    {
+        /* Enable clock to analog circuit */
+        ADCANCONbits.ANEN4 = 1;         // Enable the clock to analog bias
+        /* Wait for ADC to be ready */
+        while(!ADCANCONbits.WKRDY4);    // Wait until ADC4 is ready
+        /* Enable the ADC module */
+        ADCCON3bits.DIGEN4 = 1;         // Enable ADC4
+    }
+    
+     else if(adc_num == 7)
+    {
+        /* Enable clock to analog circuit */
+        ADCANCONbits.ANEN7 = 1;         // Enable the clock to analog bias
+        /* Wait for ADC to be ready */
+        while(!ADCANCONbits.WKRDY7);    // Wait until ADC7 is ready
+        /* Enable the ADC module */
+        ADCCON3bits.DIGEN7 = 1;         // Enable ADC7
+    }
+    
+     else
+     {
+        return;
+     }
 }
 
 void class1_adc_off(int adc_num)
@@ -138,25 +182,148 @@ void class1_adc_off(int adc_num)
     /* Turn the ADC off */
     ADCCON1bits.ON = 0;
     
-    /* Disable clock to analog circuit */
-    ADCANCONbits.ANEN0 = 0;         // Enable the clock to analog bias
-    ADCANCONbits.ANEN1 = 0;         // Enable the clock to analog bias
-    ADCANCONbits.ANEN2 = 0;         // Enable the clock to analog bias
+    if (adc_num == 0)
+    {
+        /* Disable clock to analog circuit */
+        ADCANCONbits.ANEN0 = 0;         // Disable the clock to analog bias
+        /* Disable the ADC module */
+        ADCCON3bits.DIGEN0 = 0;         // Disable ADC0
+    }
     
-    /* Disable the ADC module */
-    ADCCON3bits.DIGEN0 = 0;         // Enable ADC0
-    ADCCON3bits.DIGEN1 = 0;         // Enable ADC1
-    ADCCON3bits.DIGEN2 = 0;         // Enable ADC2   
+    else if (adc_num == 1)
+    {
+        /* Disable clock to analog circuit */
+        ADCANCONbits.ANEN1 = 0;         // Disable the clock to analog bias
+        /* Disable the ADC module */
+        ADCCON3bits.DIGEN1 = 0;         // Disable ADC1
+    }
+    
+    else if (adc_num == 2)
+    {
+        /* Disable clock to analog circuit */
+        ADCANCONbits.ANEN2 = 0;         // Disable the clock to analog bias
+        /* Disable the ADC module */
+        ADCCON3bits.DIGEN2 = 0;         // Disable ADC1
+    }
+    
+    else if (adc_num == 3)
+    {
+        /* Disable clock to analog circuit */
+        ADCANCONbits.ANEN3 = 0;         // Disable the clock to analog bias
+        /* Disable the ADC module */
+        ADCCON3bits.DIGEN3 = 0;         // Disable ADC1
+    }
+    
+    else if (adc_num == 4)
+    {
+        /* Disable clock to analog circuit */
+        ADCANCONbits.ANEN4 = 0;         // Disable the clock to analog bias
+        /* Disable the ADC module */
+        ADCCON3bits.DIGEN4 = 0;         // Disable ADC1
+    }
+    
+    else if (adc_num == 7)
+    {
+        /* Disable clock to analog circuit */
+        ADCANCONbits.ANEN7 = 0;         // Disable the clock to analog bias
+        /* Disable the ADC module */
+        ADCCON3bits.DIGEN7 = 0;         // Disable ADC1
+    }
+    
+    else
+    {
+        return;
+    }
 }
 
 long class1_adc_read(int adc_num)
-{
-    if(ADCCON1bits.ON == 0)
+{  
+    if (adc_num == 0)
     {
-        return -1;
+        // turn ADC module on
+        class1_adc_on(0);
+        /* Trigger a conversion */
+        ADCCON3bits.GSWTRG = 1;
+        /* Wait the conversions to complete */
+        while (ADCDSTAT1bits.ARDY0 == 0);
+        // turn ADC module off
+        /* fetch the result */
+        class1_adc_off(0);
+        return ADCDATA0;
     }
     
-    long val;
-    val = 0xFFFF;
-    return val;
+    else if (adc_num == 1)
+    {
+        // turn ADC module on
+        class1_adc_on(1);
+        /* Trigger a conversion */
+        ADCCON3bits.GSWTRG = 1;
+        /* Wait the conversions to complete */
+        while (ADCDSTAT1bits.ARDY1 == 0);
+        // turn ADC module off
+        class1_adc_off(1);
+        /* fetch the result */
+        return ADCDATA1;
+    }
+    
+    else if (adc_num == 2)
+    {
+        // turn ADC module on
+        class1_adc_on(2);
+        /* Trigger a conversion */
+        ADCCON3bits.GSWTRG = 1;
+        /* Wait the conversions to complete */
+        while (ADCDSTAT1bits.ARDY2 == 0);
+        // turn ADC module off
+        class1_adc_off(2);
+        /* fetch the result */
+        return ADCDATA2;
+    }
+    
+    else if (adc_num == 3)
+    {
+        // turn ADC module on
+        class1_adc_on(3);
+        /* Trigger a conversion */
+        ADCCON3bits.GSWTRG = 1;
+        /* Wait the conversions to complete */
+        while (ADCDSTAT1bits.ARDY3 == 0);
+        // turn ADC module off
+        class1_adc_off(3);
+        /* fetch the result */
+        return ADCDATA3;
+    }
+    
+    else if (adc_num == 4)
+    {
+        // turn ADC module on
+        class1_adc_on(4);
+        /* Trigger a conversion */
+        ADCCON3bits.GSWTRG = 1;
+        /* Wait the conversions to complete */
+        while (ADCDSTAT1bits.ARDY4 == 0);
+        // turn ADC module off
+        class1_adc_off(4);
+        /* fetch the result */
+        return ADCDATA4;
+    }
+    
+    else if (adc_num == 7)
+    {
+        // turn ADC module on
+        class1_adc_on(7);
+        /* Trigger a conversion */
+        ADCCON3bits.GSWTRG = 1;
+        /* Wait the conversions to complete */
+        while (ADCDSTAT1bits.ARDY4 == 0);
+        /* fetch the result */
+        // turn ADC module off
+        class1_adc_off(7);
+        return ADCDATA7;
+    }
+ 
+    else
+    {
+        return;
+    }
 }
