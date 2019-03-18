@@ -3,4 +3,5 @@ main.c  \
 config.h  \
 delay.h  \
 adc.h  \
-gpio.h 
+gpio.h  \
+spi.h 

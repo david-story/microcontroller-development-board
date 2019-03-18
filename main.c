@@ -10,6 +10,7 @@
 #include "delay.h"
 #include "adc.h"
 #include "gpio.h"
+#include "spi.h"
 
 void main(void) {
     configure_chip();
@@ -31,9 +32,12 @@ void main(void) {
     set_output(RF5,  HIGH);
     set_output(RF4,  HIGH);
         
+    int iterator = 0;
+    configure_spi();
     while(1)
     {
-        
+        spi_transmit(iterator);
+        iterator++;
     }
      
     return;
