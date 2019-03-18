@@ -95,7 +95,6 @@ void configure_class1_adc()
      ADCTRG1bits.TRGSRC2 = 1;       // Set AN2 to trigger from software.
      ADCTRG1bits.TRGSRC3 = 1;       // Set AN3 to trigger from software.
      ADCTRG2bits.TRGSRC4 = 1;       // Set AN4 to trigger from software.
-     ADCTRG2bits.TRGSRC7 = 1;       // Set AN7 to trigger from software.
      
      /* Early interrupt */
      ADCEIEN1 = 0;                  // No early interrupt
@@ -159,16 +158,6 @@ void class1_adc_on(int adc_num)
         ADCCON3bits.DIGEN4 = 1;         // Enable ADC4
     }
     
-     else if(adc_num == 7)
-    {
-        /* Enable clock to analog circuit */
-        ADCANCONbits.ANEN7 = 1;         // Enable the clock to analog bias
-        /* Wait for ADC to be ready */
-        while(!ADCANCONbits.WKRDY7);    // Wait until ADC7 is ready
-        /* Enable the ADC module */
-        ADCCON3bits.DIGEN7 = 1;         // Enable ADC7
-    }
-    
      else
      {
         return;
@@ -218,14 +207,6 @@ void class1_adc_off(int adc_num)
         ADCANCONbits.ANEN4 = 0;         // Disable the clock to analog bias
         /* Disable the ADC module */
         ADCCON3bits.DIGEN4 = 0;         // Disable ADC1
-    }
-    
-    else if (adc_num == 7)
-    {
-        /* Disable clock to analog circuit */
-        ADCANCONbits.ANEN7 = 0;         // Disable the clock to analog bias
-        /* Disable the ADC module */
-        ADCCON3bits.DIGEN7 = 0;         // Disable ADC1
     }
     
     else
@@ -312,21 +293,6 @@ long class1_adc_read(int adc_num)
         return result;
     }
     
-    else if (adc_num == 7)
-    {
-        // turn ADC module on
-        class1_adc_on(adc_num);
-        /* Trigger a conversion */
-        ADCCON3bits.GSWTRG = 1;
-        /* Wait the conversions to complete */
-        while (ADCDSTAT1bits.ARDY7 == 0);
-        /* fetch the result */
-        result = ADCDATA7;
-        // turn ADC module off
-        class1_adc_off(adc_num);
-        return result;
-    }
- 
     else
     {
         return;

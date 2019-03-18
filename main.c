@@ -9,14 +9,15 @@
 #include <xc.h>
 #include "config.h"
 #include "delay.h"
-#include "adc1.h"
+#include "adc.h"
 
 void main(void) {
     configure_chip();
     long value = 0;
+    set_adc(15);
     while(1)
     {
-        value = class2_adc_read(17);
+        value = read_adc(15);
         delay_ms(250);
     }
     

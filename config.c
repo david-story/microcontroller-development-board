@@ -89,7 +89,6 @@ void configure_analog_pins()
     ANSELB = 0x00;
     // Analog select for PORTE
     ANSELE = 0x00;
-    ANSELEbits.ANSE5 = 1;
     // Analog select for PORTG
     ANSELG = 0x00;
 }
@@ -104,7 +103,6 @@ void configure_io()
     TRISD = 0x000000;
     // Tri-state E configuration (input = 1 : output = 0)
     TRISE = 0x000000;
-    TRISEbits.TRISE5 = 1;
     // Tri-state F configuration (input = 1 : output = 0)
     TRISF = 0x000000;
     // Tri-state G configuration (input = 1 : output = 0)
