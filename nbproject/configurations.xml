@@ -11,6 +11,7 @@
       </logicalFolder>
       <itemPath>delay.h</itemPath>
       <itemPath>config.h</itemPath>
+      <itemPath>gpio.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -24,9 +25,11 @@
           <itemPath>adc1.c</itemPath>
           <itemPath>adc2.c</itemPath>
           <itemPath>adc.c</itemPath>
+          <itemPath>spi.c</itemPath>
         </logicalFolder>
         <itemPath>config.c</itemPath>
         <itemPath>delay.c</itemPath>
+        <itemPath>gpio.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
     </logicalFolder>
@@ -35,6 +38,7 @@
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
+    <itemPath>spi.h</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
