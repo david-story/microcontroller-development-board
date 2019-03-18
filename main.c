@@ -15,13 +15,21 @@ void main(void) {
     configure_chip();
     long value = 0;
     
-    set_gpio_pin(RB5, INPUT);
-    set_gpio_pin(RB4, INPUT);
-    set_gpio_pin(RB3, INPUT);
-    set_gpio_pin(RB2, INPUT);
-    set_gpio_pin(RG9, INPUT);
+    set_gpio_pin(RD0,  OUTPUT);
+    set_gpio_pin(RD11, OUTPUT);
+    set_gpio_pin(RD10, OUTPUT);
+    set_gpio_pin(RD9,  OUTPUT);
+    set_gpio_pin(RF5,  OUTPUT);
+    set_gpio_pin(RF4,  OUTPUT);
+    
+    set_gpio_pin(RG9, OUTPUT);
    
-    set_output(RB4, HIGH);
+    set_output(RD0,  HIGH);
+    set_output(RD11, HIGH);
+    set_output(RD10, HIGH);
+    set_output(RD9,  HIGH);
+    set_output(RF5,  HIGH);
+    set_output(RF4,  HIGH);
         
     while(1)
     {

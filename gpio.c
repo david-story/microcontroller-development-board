@@ -13,6 +13,7 @@ void set_gpio_pin(int pin_value, int state)
 {
     if (pin_value == RB0  || pin_value == RB1  || pin_value == RB2  ||
         pin_value == RB3  || pin_value == RB4  || pin_value == RB5  ||
+        pin_value == RB6  || pin_value == RB7  || pin_value == RB8  ||
         pin_value == RB9  || pin_value == RB10 || pin_value == RB11 ||
         pin_value == RB12 || pin_value == RB13 || pin_value == RB14 ||
         pin_value == RB15)
@@ -180,12 +181,12 @@ int set_output(int pin_value, int output_value)
     {
         if (output_value == HIGH)
         {
-            PORTF = PORTF ^ (0x01 << (pin_value - 37));
+            PORTF = PORTF ^ (0x01 << (pin_value - 47));
             return PORTF;
         }
         else if (output_value == LOW)
         {
-            PORTF = PORTF & (~(0x01 << (pin_value - 37)));
+            PORTF = PORTF & (~(0x01 << (pin_value - 47)));
             return PORTF;
         }
     }
@@ -195,12 +196,12 @@ int set_output(int pin_value, int output_value)
     {
         if (output_value == HIGH)
         {
-            PORTG = PORTG ^ (0x01 << (pin_value - 46));
+            PORTG = PORTG ^ (0x01 << (pin_value - 56));
             return PORTG;
         }
         else if (output_value == LOW)
         {
-            PORTG = PORTG & (~(0x01 << (pin_value - 46)));
+            PORTG = PORTG & (~(0x01 << (pin_value - 56)));
             return PORTG;
         }
     }

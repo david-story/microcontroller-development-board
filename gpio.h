@@ -70,16 +70,16 @@ int  get_pin_value(int pin_value);
 #define RE6     45
 #define RE7     46
 
-#define RF0     37
-#define RF1     38
-#define RF3     40
-#define RF4     41
-#define RF5     42
+#define RF0     47
+#define RF1     48
+#define RF3     50
+#define RF4     51
+#define RF5     52
 
-#define RG6     52
-#define RG7     53
-#define RG8     54
-#define RG9     55
+#define RG6     62
+#define RG7     63
+#define RG8     64
+#define RG9     65
 
 #endif /* gpio */
 
