@@ -5,7 +5,6 @@
  * Created on March 17, 2019, 6:20 PM
  */
 
-
 #include <xc.h>
 #include "gpio.h"
 
