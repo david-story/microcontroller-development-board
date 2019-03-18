@@ -7,6 +7,7 @@ Current support includes:
 <ul>
 <li>Microcontroller configuration</li>
 <li>GPIO functions</li>
+<li>Delay functions</li>
 <li>Analog-to-digital functions</li>
 </ul>
 
