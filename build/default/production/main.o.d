@@ -4,4 +4,5 @@ config.h  \
 delay.h  \
 adc.h  \
 gpio.h  \
- spi.h 
+ spi.h  \
+i2c.h 

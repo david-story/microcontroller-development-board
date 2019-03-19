@@ -11,6 +11,7 @@
 #include "adc.h"
 #include "gpio.h"
 #include "spi.h"
+#include "i2c.h"
 
 void main(void) {
     configure_chip();
