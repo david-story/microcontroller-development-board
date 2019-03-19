@@ -1,5 +1,5 @@
 /*
- * File:   adc.c
+ * File:   adc1.c
  * Author: David
  *
  * Created on March 16, 2019, 5:50 PM

@@ -12,6 +12,7 @@
       <itemPath>delay.h</itemPath>
       <itemPath>config.h</itemPath>
       <itemPath>gpio.h</itemPath>
+      <itemPath>../../Downloads/MPLABX/i2c.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -30,6 +31,7 @@
         <itemPath>config.c</itemPath>
         <itemPath>delay.c</itemPath>
         <itemPath>gpio.c</itemPath>
+        <itemPath>../../Downloads/MPLABX/i2c.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
     </logicalFolder>
@@ -40,6 +42,9 @@
     </logicalFolder>
     <itemPath>spi.h</itemPath>
   </logicalFolder>
+  <sourceRootList>
+    <Elem>../../Downloads/MPLABX</Elem>
+  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="default" type="2">
